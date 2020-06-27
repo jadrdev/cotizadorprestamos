@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   View,
@@ -6,7 +6,6 @@ import {
   SafeAreaView,
   StatusBar,
   YellowBox,
-  Button,
 } from 'react-native';
 import ResultadodelCalculo from './src/components/ResultadodelCalculo';
 import Footer from './src/components/Footer';
@@ -22,10 +21,15 @@ export default function App() {
   const [total, setTotal] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
+  useEffect(() => {
+    if (capital && interest & meses) calcular();
+    else reset();
+  }, [capital, interest, meses]);
+
   const calcular = () => {
     reset();
-    if(!capital) {
-     setErrorMessage("Añade la cantidad que quieres solicitar");
+    if (!capital) {
+      setErrorMessage('Añade la cantidad que quieres solicitar');
     } else if (!interest) {
       setErrorMessage("Te faltas los intereses");
     } else if (!meses) {
@@ -43,7 +47,6 @@ export default function App() {
     setErrorMessage("");
     setTotal(null);
   }
-  
 
   return (
  <>
