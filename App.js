@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   StyleSheet,
   View,
   Text,
   SafeAreaView,
   StatusBar,
-  YellowBox,
 } from 'react-native';
 import ResultadodelCalculo from './src/components/ResultadodelCalculo';
 import Footer from './src/components/Footer';
 import Form from './src/components/Form';
 import colors from './src/utils/colors.js';
-
-YellowBox.ignoreWarnings(['Picker has benn extracted']);
 
 export default function App() {
   const [capital, setCapital] = useState(null);
@@ -49,25 +46,25 @@ export default function App() {
   }
 
   return (
- <>
-    <StatusBar barStyle="light-content" />
+    <>
+      <StatusBar barStyle="light-content" />
       <View style={styles.background} />
-    <SafeAreaView style={styles.safeArea}>
-      <Text style={styles.titleApp}>Cotizador de Prestamos </Text>
-      <Form 
-      setCapital={setCapital}
-      setInteres={setInteres}
-      setMeses={setMeses}
+      <SafeAreaView style={styles.safeArea}>
+        <Text style={styles.titleApp}>Cotizador de Prestamos </Text>
+        <Form
+          setCapital={setCapital}
+          setInteres={setInteres}
+          setMeses={setMeses}
+        />
+      </SafeAreaView>
+      <ResultadodelCalculo
+        errorMessage={errorMessage}
+        capital={capital}
+        interest={interest}
+        meses={meses}
+        total={total}
       />
-    </SafeAreaView>
-    <ResultadodelCalculo 
-    errorMessage={errorMessage}
-    capital={capital}
-    interest={interest}
-    meses={meses}
-    total={total} 
-    />
-    <Footer calcular ={calcular} />
+      <Footer calcular={calcular} />
 
     </>
   );

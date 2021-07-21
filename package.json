@@ -10,8 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react": "17.0.1",
+    "react-native": "0.64.2",
     "react-native-picker-select": "^7.0.0"
   },
   "devDependencies": {
